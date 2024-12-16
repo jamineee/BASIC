@@ -78,35 +78,13 @@ with tab2:
     # Column 1
     with col1:
         st.subheader("주제별 청원 분류")
-        grouped_by_topic = data.groupby("분야").size()  # 청원 주제별 건수 집계
-        fig1, ax1 = plt.subplots()
-        ax1.pie(
-            grouped_by_topic, 
-            labels=grouped_by_topic.index, 
-            autopct='%1.1f%%', 
-            startangle=140, 
-            colors=plt.cm.Paired.colors
-        )
-        ax1.set_title("주제별 청원 분포")
-        fig1.savefig('/content/topic.png')
-        st.image('/content/topic.png')
+        topic_img = Image.open('topic_agreements.png')
 
     # Column 2
     with col2:
         st.subheader("청원 동의 수")
-        grouped_by_agreements = data.groupby("분야")["동의수"].sum().sort_values(ascending=False)  # 주제별 동의 수 합산
-        fig2, ax2 = plt.subplots()
-        ax2.bar(
-            grouped_by_agreements.index, 
-            grouped_by_agreements.values, 
-            color="skyblue"
-        )
-        ax2.set_title("청원 주제별 동의 수")
-        ax2.set_ylabel("동의 수")
-        ax2.set_xlabel("청원 주제")
-        plt.xticks(rotation=45)
-        fig2.savefig('/content/nums.png')
-        st.image('/content/nums.png')
+        agree_img = Image.open('topic_distribution.png')
+
 
 import streamlit as st
 from tensorflow.keras.models import load_model
