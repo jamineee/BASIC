@@ -32,7 +32,7 @@ with tab1:
     # Tab A 내용
     #st.write('')
   
-    os.environ["OPENAI_API_KEY"] = #api키 작성. 키는 없애라고 하셔서 제거했습니다
+    os.environ["OPENAI_API_KEY"] = "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"  
   
     st.title("당신의 청원 작성을 도와드립니다!")  
 
