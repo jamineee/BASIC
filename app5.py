@@ -9,15 +9,14 @@ import json
 from openai import OpenAI
 import os
 # CSV 파일 로드
-file_path = 'full_petition_df.csv'
+file_path = './full_petition_df.csv'
 data = pd.read_csv(file_path)
 
 #사진 파일 로드
 from PIL import Image
 
 #PIL 패키지에 이미지 모듈을 통해 이미지 열기 
-# Image.open('이미지 경로')
-assembly_img = Image.open('assembly_img.jpg')
+assembly_img = Image.open('./assembly_img.jpg')
 
 col1,col2 = st.columns([2,3])
 # 제목
@@ -79,12 +78,16 @@ with tab2:
     # Column 1
     with col1:
         st.subheader("주제별 청원 분류")
-        topic_img = Image.open('topic_agreements.png')
+        topic_img = Image.open('./topic_agreements.png')
+        st.image(topic_img)
+
 
     # Column 2
     with col2:
         st.subheader("청원 동의 수")
-        agree_img = Image.open('topic_distribution.png')
+        agree_img = Image.open('./topic_distribution.png')
+        st.image(agree_img)
+
 
 
 import streamlit as st
@@ -96,8 +99,8 @@ from konlpy.tag import Okt
 # 모델 및 토크나이저 로드
 @st.cache_resource  # 캐싱을 통해 로드 시간을 단축
 def load_resources():
-    model = load_model("agreement_prediction_model.keras")
-    with open("agreement_tokenizer.pkl", "rb") as f:
+    model = load_model("./agreement_prediction_model.keras")
+    with open("./agreement_tokenizer.pkl", "rb") as f:
         tokenizer = joblib.load(f)
     return model, tokenizer
 
