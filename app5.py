@@ -32,7 +32,8 @@ with tab1:
     # Tab A 내용
     #st.write('')
   
-    os.environ["OPENAI_API_KEY"] = 
+    import os
+    os.environ["OPENAI_API_KEY"] = st.secrets["openai"]["api_key"]    
     client = OpenAI()  
 
     st.title("당신의 청원 작성을 도와드립니다!")  
