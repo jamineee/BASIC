@@ -33,7 +33,8 @@ with tab1:
     #st.write('')
   
     os.environ["OPENAI_API_KEY"] = "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"  
-  
+    client = OpenAI()  
+
     st.title("당신의 청원 작성을 도와드립니다!")  
 
     if 'messages' not in st.session_state:  
