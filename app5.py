@@ -73,17 +73,12 @@ with tab1:
 with tab2:
     # Tab B 내용
     st.write('국회 국민동의 청원 대시보드')
-    col1, col2 = st.columns([2, 3])
-
-    # Column 1
-    with col1:
-        st.subheader("주제별 청원 분류")
-        topic_img = Image.open('./topic_agreements.png')
-        st.image(topic_img)
 
 
-    # Column 2
-    with col2:
-        st.subheader("청원 동의 수")
-        agree_img = Image.open('./topic_distribution.png')
-        st.image(agree_img)
+    st.subheader("주제별 청원 분류")
+    topic_img = Image.open('./topic_agreements.png')
+    st.image(topic_img)
+
+    st.subheader("청원 동의 수")
+    agree_img = Image.open('./topic_distribution.png')
+    st.image(agree_img)
